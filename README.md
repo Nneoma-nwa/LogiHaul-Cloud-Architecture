@@ -47,3 +47,24 @@ The solution was designed to achieve the following objectives:
 * Maintain a cost-conscious architecture while preserving a clear path toward future production-scale enhancements.
 
 The following sections describe each architectural layer, the AWS services selected, the design decisions made, and the trade-offs considered during implementation.
+
+---
+
+# Architecture Layers
+
+The LogiHaul cloud architecture is organized into six major layers, with each layer responsible for a specific part of the platform's operation. This layered approach ensures that the system remains secure, scalable, reliable, and cost-efficient while supporting the requirements of a nationwide logistics platform.
+
+![LogiHaul Architecture Diagram](architecture/Full Architecture.pdf)
+
+The architecture combines traditional infrastructure and serverless services to handle customer requests, process delivery operations, store application data, manage events, and monitor system performance.
+
+The six architectural layers are:
+
+Foundation & Identity — Provides the secure network foundation through VPC design, subnet segmentation, security groups, and IAM roles following least-privilege principles.
+Compute & Scaling — Handles application hosting through Amazon EC2, Application Load Balancer, and Auto Scaling to support variable traffic and sudden demand increases.
+Storage — Provides scalable object storage through Amazon S3 with features such as encryption, versioning, lifecycle management, and cross-region replication.
+Databases — Manages application data using Amazon RDS PostgreSQL for transactional workloads, ElastiCache Redis for performance optimization, and DynamoDB for event-driven workloads.
+Serverless & Events — Enables asynchronous processing through API Gateway, Lambda, SQS, and SNS, allowing order processing and notification workflows to scale independently.
+Observability — Provides monitoring, logging, dashboards, and alerting through Amazon CloudWatch to support operational visibility and faster troubleshooting.
+
+Together, these layers create a cloud architecture that balances current business constraints with future scalability requirements while supporting LogiHaul's goal of reliable nationwide delivery operations.
